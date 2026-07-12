@@ -1,13 +1,13 @@
 #!name=Fuck Telegram bad IPs
-#!desc=将 tg 的垃圾 IP 转移到好的 IP 上. 原版 https://github.com/Repcz/Tool/raw/X/Surge/Module/Function/FKTG.sgmodule
-#!category=
-
+#!desc=TG劣IP替换
+#!category=NETWORK
+#!author=me
+#!version=1.0
 
 [General]
 use-local-host-item-for-proxy = true
 
 [Host]
-# Fuck Telegram bad ips
 91.108.56.100 = 91.108.56.147,91.108.56.201
 91.108.56.101 = 91.108.56.147,91.108.56.201
 91.108.56.104 = 91.108.56.147,91.108.56.201
