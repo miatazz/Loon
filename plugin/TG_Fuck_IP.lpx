@@ -1,9 +1,9 @@
 #!name=Fuck Telegram bad IPs
-#!desc=TG劣质IP自动替换 原版 https://github.com/Repcz/Tool/raw/X/Surge/Module/Function/FKTG.sgmodule
-#!category=NETWORK
-#!author=me
+#!desc=TG劣质IP自动替换
+#!category=Host
+#!author=Repcz
 #!version=1.0
-#!icon=https://cdn.jsdelivr.net/gh/Orz-3/mini@master/icon/Telegram.png
+#!icon=https://icons.getbootstrap.com/assets/icons/telegram.svg
 
 [General]
 use-local-host-item-for-proxy = true
