@@ -11,4 +11,4 @@ cronTime = input,"0 8 * * *",tag=推送时间,desc=Cron表达式(分 时 日 月
 apiType = select,"60s","bing","history","weibo","zhihu","bili",tag=新闻类型
 
 [Script]
-cron {cronTime} script-path=https://raw.githubusercontent.com/miatazz/Loon/refs/heads/main/JS/new%2060s.js, tag=60s早报推送, enable=true, argument={"type":"60s","maxNews":8,"chunkSize":3,"multiNotify":true,"openImage":true}
+cron {cronTime} script-path=https://raw.githubusercontent.com/miatazz/Loon/main/js/60s.js, tag=60s早报推送, enable=true, argument={"type":"60s","maxNews":8,"chunkSize":3,"multiNotify":true,"openImage":true}
