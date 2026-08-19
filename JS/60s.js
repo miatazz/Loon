@@ -8,7 +8,6 @@ const FALLBACK_APIS = [
     "https://60s.lzw.me/?type=60s&e=json"
 ];
 
-// ---------- 工具函数 ----------
 function log(msg) {
     console.log(`[${SCRIPT_NAME}] ${msg}`);
 }
@@ -17,7 +16,6 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// 解析 $argument（支持 JSON 数组或键值对）
 function parseArgument(arg) {
     if (!arg) return {};
     try {
@@ -35,7 +33,6 @@ function parseArgument(arg) {
     }
 }
 
-// 从 $argument 获取配置
 function getConfig(argument) {
     const cfg = parseArgument(argument);
     return {
@@ -48,7 +45,6 @@ function getConfig(argument) {
     };
 }
 
-// 去重检查
 function shouldSkip(date) {
     if (!date) return false;
     try {
@@ -63,7 +59,6 @@ function shouldSkip(date) {
     return false;
 }
 
-// 保存去重标记
 function markPushed(date) {
     if (!date) return;
     try {
@@ -74,7 +69,6 @@ function markPushed(date) {
     }
 }
 
-// 构建通知内容（分块）
 function buildChunk(newsChunk, startIndex, tip) {
     const lines = newsChunk.map((item, i) => {
         let text = typeof item === 'string' ? item : (item.title || item.text || String(item));
@@ -89,7 +83,6 @@ function buildChunk(newsChunk, startIndex, tip) {
     return lines.join('\n') || '暂无新闻';
 }
 
-// 获取新闻（支持多 API 回退）
 async function fetchNews(apiUrl) {
     log(`请求: ${apiUrl}`);
     const resp = await $http.get({
@@ -107,7 +100,6 @@ async function fetchNews(apiUrl) {
     throw new Error('返回数据格式错误');
 }
 
-// 主函数
 (async () => {
     const config = getConfig($argument);
     log(`开始获取新闻 (type=${config.type})`);
