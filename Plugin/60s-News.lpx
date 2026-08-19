@@ -1,0 +1,16 @@
+#!name = 60s 读懂世界
+#!desc = 每天定时获取 60s 读懂世界早报，支持自定义推送时间
+#!author = Loon User
+#!homepage = https://github.com/lzwme/60s-php
+#!icon = https://raw.githubusercontent.com/lzwme/60s-php/main/icon.png
+#!system = ios,tvos,macos
+#!loon_version = 3.2.1(734)
+
+# 可配置参数
+[Argument]
+cronTime = input,"0 8 * * *",tag=推送时间,desc=定时任务的Cron表达式(分 时 日 月 周)
+apiType = select,"60s","bing","history","weibo","zhihu","bili",tag=新闻类型,desc=选择要获取的内容类型
+
+[Script]
+# 定时任务，使用用户配置的 cron 表达式
+cron {cronTime} script-path=https://raw.githubusercontent.com/lzwme/60s-php/main/loon_script.js, tag=60s早报推送, enable=true, argument=[{apiType}]
